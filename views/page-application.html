@@ -27,7 +27,7 @@
 			<button class="btn btn-sm btn-warning navbar-btn" >
 	    		<span class="glyphicon glyphicon-chevron-left"></span> Back
 	    	</button>
-            <button class="btn btn-sm btn-success navbar-btn" >
+            <button class="btn btn-sm btn-success navbar-btn" data-bind="click: apl.saveScrapper">
 	    		<span class="glyphicon glyphicon-save"></span> Save
 	    	</button>
 	    	<button class="btn btn-sm btn-success navbar-btn" >
@@ -52,13 +52,16 @@
 			    		<div class="form-group">
 				    		<label class="col-md-4 filter-label">Auto Start</label>
 				    		<div class="col-md-5">
-				    			<input type="checkbox"/>
+				    			<input type="checkbox" id="Enable" data-bind="value: Enable" />
 				    		</div>
 			    		</div>
 			    		<div class="form-group">
 				    		<label class="col-md-4 filter-label">App Resources</label>
 				    		<div class="col-md-5">
-				    			<button class="btn btn-md btn-primary">Upload zip file here</button>
+				    			<!-- <button type="file" class="btn btn-md btn-primary" data-bind="click: apl.uploadScrapper">Upload zip file here</button> -->
+				    			<div class="k-content">
+				                    <input name="files" id="files" type="file" data-bind="value: AppPath" />
+				                </div>
 				    		</div>
 			    		</div>
 		    		</div>
