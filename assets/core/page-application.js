@@ -2,6 +2,10 @@ app.section('scrapper');
 
 viewModel.application = {}; var apl = viewModel.application;
 
+apl.templateConfigScrapper = {
+	_id: ""
+};
+
 apl.configScrapper = ko.mapping.fromJS(apl.templateConfigScrapper);
 apl.scrapperMode = ko.observable('');
 apl.scrapperData = ko.observableArray([]);
@@ -21,7 +25,7 @@ apl.scrapperColumns = ko.observableArray([
 
 apl.getApplications = function() {
 	apl.scrapperData([]);
-	app.ajaxPost("/application/getdataapplication", {}, function (res) {
+	app.ajaxPost("/application/getapps", {}, function (res) {
 		if (!app.isFine(res)) {
 			return;
 		}
@@ -36,7 +40,6 @@ apl.editScrapper = function(_id) {
 		if (!app.isFine(res)) {
 			return;
 		}
-
 		app.mode('editor');
 		apl.scrapperMode('editor');
 		ko.mapping.fromJS(res.data, apl.configScrapper);
@@ -49,6 +52,10 @@ apl.createNewScrapper = function () {
 	apl.scrapperMode('');
 	ko.mapping.fromJS(apl.templateConfigScrapper, alp.configScrapper);
 	alp.addMap();
+};
+
+apl.backToFront = function () {
+	app.mode("");
 };
 
 $(function () {
