@@ -71,8 +71,6 @@ apl.backToFront = function () {
 };
 
 
-
-
 $(function () {
 	apl.getApplications();
 	$("#files").kendoUpload();
